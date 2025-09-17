@@ -3,7 +3,7 @@ import { Footer } from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Heart, Shield, Users, CheckCircle, Camera, CreditCard, Share2 } from 'lucide-react';
+import { Heart, Shield, Users, CheckCircle, Camera, CreditCard, Share2, AlertTriangle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const HowItWorks = () => {
@@ -32,6 +32,18 @@ const HowItWorks = () => {
 
   const faqs = [
     {
+      question: "Qual é a responsabilidade da Vaquinha Solidária?",
+      answer: "A Vaquinha Solidária é apenas uma plataforma facilitadora que conecta campanhas com potenciais doadores. NÃO somos responsáveis pela veracidade das campanhas, pela entrega dos valores prometidos, nem por reembolsos. Nossa função é exclusivamente facilitar a divulgação de campanhas e chaves PIX."
+    },
+    {
+      question: "A plataforma garante que as campanhas são verdadeiras?",
+      answer: "NÃO. Embora nos esforcemos para identificar e remover campanhas suspeitas, não podemos garantir a veracidade de todas as campanhas. É responsabilidade do doador verificar a autenticidade da campanha antes de doar. Recomendamos sempre pesquisar sobre o caso e, quando possível, entrar em contato direto com o beneficiário."
+    },
+    {
+      question: "Posso solicitar reembolso de uma doação?",
+      answer: "A Vaquinha Solidária NÃO processa nem intermediamos as doações, portanto não podemos oferecer reembolsos. As doações são feitas diretamente via PIX para a conta do criador da campanha. Qualquer questão sobre reembolso deve ser tratada diretamente entre doador e beneficiário."
+    },
+    {
       question: "Como funciona a confirmação das doações?",
       answer: "Quando alguém faz uma doação via PIX, a pessoa envia o comprovante na plataforma. Você, como criador da campanha, precisa confirmar manualmente que recebeu o valor para que ele seja somado na sua meta. Isso garante transparência total."
     },
@@ -49,7 +61,11 @@ const HowItWorks = () => {
     },
     {
       question: "As doações são seguras?",
-      answer: "Sim! As doações são feitas via PIX, que é um sistema seguro do Banco Central. Além disso, todos os comprovantes ficam registrados na plataforma para total transparência."
+      answer: "As doações utilizam o sistema PIX do Banco Central, que é seguro. Porém, a segurança da campanha em si (se é verdadeira, se os valores chegaram ao destino) é responsabilidade do criador e do doador. A plataforma apenas facilita a conexão entre eles."
+    },
+    {
+      question: "Como denunciar uma campanha suspeita?",
+      answer: "Se você suspeita que uma campanha pode ser fraudulenta, entre em contato conosco imediatamente. Analisaremos o caso, mas lembre-se que nossa responsabilidade é limitada à remoção da campanha da plataforma. Questões legais devem ser tratadas diretamente com as autoridades competentes."
     },
     {
       question: "Posso editar minha campanha depois de criada?",
@@ -68,7 +84,7 @@ const HowItWorks = () => {
             Como Funciona a Vaquinha Solidária
           </h1>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Uma plataforma 100% gratuita para arrecadar fundos de forma transparente e segura
+            Uma plataforma facilitadora 100% gratuita que conecta campanhas com doadores. Não intermediamos valores nem garantimos campanhas.
           </p>
         </div>
       </section>
@@ -109,7 +125,7 @@ const HowItWorks = () => {
               Segurança e Transparência
             </h2>
             <p className="text-xl text-muted-foreground">
-              Sua segurança e a dos doadores é nossa prioridade
+              Facilitamos conexões seguras, mas não garantimos campanhas
             </p>
           </div>
 
@@ -149,6 +165,79 @@ const HowItWorks = () => {
                 </p>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Disclaimer Section */}
+      <section className="py-16 px-4 bg-destructive/5 dark:bg-yellow-500/5 border-y border-destructive/20 dark:border-yellow-500/20">
+        <div className="container mx-auto max-w-4xl">
+          <div className="text-center mb-8">
+            <AlertTriangle className="w-16 h-16 text-destructive dark:text-yellow-500 mx-auto mb-4" />
+            <h2 className="text-3xl font-bold mb-4 text-destructive dark:text-yellow-500">
+              Importante: Limitações de Responsabilidade
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Card className="border-destructive/20 dark:border-yellow-500/20">
+              <CardHeader>
+                <CardTitle className="text-destructive dark:text-yellow-500 flex items-center gap-2">
+                  <Shield className="w-5 h-5" />
+                  Nossa Função
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <p className="text-sm text-muted-foreground">
+                  <strong>✓ Facilitar</strong> a divulgação de campanhas
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  <strong>✓ Conectar</strong> pessoas que precisam com pessoas que querem ajudar
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  <strong>✓ Fornecer</strong> uma plataforma gratuita e transparente
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  <strong>✓ Remover</strong> campanhas suspeitas quando identificadas
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-destructive/20 dark:border-yellow-500/20">
+              <CardHeader>
+                <CardTitle className="text-destructive dark:text-yellow-500 flex items-center gap-2">
+                  <AlertTriangle className="w-5 h-5" />
+                  Não Somos Responsáveis Por
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <p className="text-sm text-muted-foreground">
+                  <strong>✗ Veracidade</strong> das campanhas publicadas
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  <strong>✗ Entrega</strong> dos valores aos beneficiários finais
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  <strong>✗ Reembolsos</strong> de doações realizadas
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  <strong>✗ Questões legais</strong> entre doadores e beneficiários
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="mt-8 p-6 bg-background border border-destructive/30 dark:border-yellow-500/30 rounded-lg">
+            <h3 className="font-bold text-center mb-4 text-destructive dark:text-yellow-500">
+              Recomendações Importantes para Doadores
+            </h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li>• <strong>Pesquise</strong> sobre a campanha e beneficiário antes de doar</li>
+              <li>• <strong>Entre em contato</strong> diretamente com o criador quando possível</li>
+              <li>• <strong>Verifique</strong> se existem outras formas de confirmar a veracidade</li>
+              <li>• <strong>Denuncie</strong> campanhas suspeitas para ajudar outros usuários</li>
+              <li>• <strong>Doe com consciência</strong> - sua doação é um ato de fé e solidariedade</li>
+            </ul>
           </div>
         </div>
       </section>
