@@ -1,5 +1,6 @@
 import { CampaignCard } from "./CampaignCard";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 // Mock data para demonstração
 const mockCampaigns = [
@@ -88,8 +89,10 @@ export const CampaignGrid = () => {
         </div>
         
         <div className="text-center mt-12">
-          <Button variant="outline" size="lg">
-            Ver todas as campanhas
+          <Button variant="outline" size="lg" asChild>
+            <Link to="/campanhas">
+              Ver todas as campanhas
+            </Link>
           </Button>
         </div>
       </div>

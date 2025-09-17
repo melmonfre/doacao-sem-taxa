@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Heart, Users, Calendar } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface CampaignCardProps {
   title: string;
@@ -78,10 +79,12 @@ export const CampaignCard = ({
           <Button 
             variant="donate" 
             className="w-full"
-            onClick={() => window.location.href = `/campanha/${slug}`}
+            asChild
           >
-            <Heart className="w-4 h-4" />
-            Ajudar
+            <Link to={`/campanha/${slug}`}>
+              <Heart className="w-4 h-4" />
+              Ajudar
+            </Link>
           </Button>
         </div>
       </CardContent>
