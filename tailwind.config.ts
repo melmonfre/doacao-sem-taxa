@@ -13,6 +13,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        'sans': ['Inter', 'system-ui', 'sans-serif'],
+        'display': ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -22,6 +26,8 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          variant: "hsl(var(--primary-variant))",
+          glow: "hsl(var(--primary-glow))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -75,11 +81,15 @@ export default {
         'gradient-hero': 'var(--gradient-hero)',
         'gradient-card': 'var(--gradient-card)',
         'gradient-progress': 'var(--gradient-progress)',
+        'gradient-glow': 'var(--gradient-glow)',
+        'gradient-mesh': 'var(--gradient-mesh)',
       },
       boxShadow: {
         'elegant': 'var(--shadow-elegant)',
         'card': 'var(--shadow-card)',
         'progress': 'var(--shadow-progress)',
+        'glow': 'var(--shadow-glow)',
+        'soft': 'var(--shadow-soft)',
       },
       keyframes: {
         "accordion-down": {

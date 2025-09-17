@@ -68,13 +68,16 @@ const mockCampaigns = [
 
 export const CampaignGrid = () => {
   return (
-    <section className="py-16 bg-background">
+    <section className="py-20 bg-gradient-to-b from-background to-muted/30">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+            💎 Campanhas Verificadas
+          </div>
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-6 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
             Campanhas em destaque
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Conheça algumas das campanhas que estão fazendo a diferença na vida das pessoas
           </p>
         </div>
@@ -88,8 +91,8 @@ export const CampaignGrid = () => {
           ))}
         </div>
         
-        <div className="text-center mt-12">
-          <Button variant="outline" size="lg" asChild>
+        <div className="text-center mt-16">
+          <Button variant="outline" size="lg" asChild className="hover:bg-primary/5 hover:border-primary/50 transition-all duration-300 shadow-soft hover:shadow-card">
             <Link to="/campanhas">
               Ver todas as campanhas
             </Link>
