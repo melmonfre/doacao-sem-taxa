@@ -68,21 +68,21 @@ const mockCampaigns = [
 
 export const CampaignGrid = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-background to-muted/30">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-background to-muted/30">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-primary/10 text-primary rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
             💎 Campanhas Verificadas
           </div>
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-6 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-display font-bold text-foreground mb-4 sm:mb-6 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
             Campanhas em destaque
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
             Conheça algumas das campanhas que estão fazendo a diferença na vida das pessoas
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {mockCampaigns.map((campaign, index) => (
             <CampaignCard
               key={index}
@@ -91,8 +91,8 @@ export const CampaignGrid = () => {
           ))}
         </div>
         
-        <div className="text-center mt-16">
-          <Button variant="outline" size="lg" asChild className="hover:bg-primary/5 hover:border-primary/50 transition-all duration-300 shadow-soft hover:shadow-card">
+        <div className="text-center mt-12 sm:mt-16">
+          <Button variant="outline" size="lg" asChild className="hover:bg-primary/5 hover:border-primary/50 transition-all duration-300 shadow-soft hover:shadow-card w-full sm:w-auto">
             <Link to="/campanhas">
               Ver todas as campanhas
             </Link>
