@@ -10,7 +10,9 @@ import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Separator } from '@/components/ui/separator';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { toast } from '@/hooks/use-toast';
+import { ShareButtons } from '@/components/ShareButtons';
+import { DonationTimeline } from '@/components/DonationTimeline';
+import { toast, showSuccess, showError } from '@/components/EnhancedToast';
 import { Campaign as CampaignType, Donation, DonationData } from '@/types';
 import { 
   Heart, 

@@ -32,6 +32,10 @@ export const Header = () => {
             <span>Como Funciona</span>
             <div className="absolute inset-x-0 bottom-[-4px] h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
           </Link>
+          <Link to="/sobre-nos" className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium relative group">
+            <span>Sobre Nós</span>
+            <div className="absolute inset-x-0 bottom-[-4px] h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+          </Link>
         </nav>
         
         <div className="flex items-center space-x-2 sm:space-x-3 lg:space-x-4">

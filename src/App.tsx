@@ -7,6 +7,7 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
 import HowItWorks from "./pages/HowItWorks";
+import AboutUs from "./pages/AboutUs";
 import CreateCampaign from "./pages/CreateCampaign";
 import Campaigns from "./pages/Campaigns";
 import Campaign from "./pages/Campaign";
@@ -25,6 +26,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/entrar" element={<Login />} />
             <Route path="/como-funciona" element={<HowItWorks />} />
+            <Route path="/sobre-nos" element={<AboutUs />} />
             <Route path="/criar-campanha" element={<CreateCampaign />} />
             <Route path="/campanhas" element={<Campaigns />} />
             <Route path="/campanha/:slug" element={<Campaign />} />

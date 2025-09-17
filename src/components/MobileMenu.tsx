@@ -39,6 +39,13 @@ export const MobileMenu = () => {
             >
               Como Funciona
             </Link>
+            <Link 
+              to="/sobre-nos" 
+              className="text-lg font-medium text-foreground hover:text-primary transition-colors"
+              onClick={() => setOpen(false)}
+            >
+              Sobre Nós
+            </Link>
             
             <div className="border-t pt-4 space-y-3">
               <div className="flex items-center justify-between">

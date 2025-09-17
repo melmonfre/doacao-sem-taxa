@@ -6,9 +6,11 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { toast } from '@/hooks/use-toast';
+import { Badge } from '@/components/ui/badge';
+import { toast, showSuccess, showError } from '@/components/EnhancedToast';
+import { validatePixKey, formatPixKey } from '@/utils/pixValidation';
 import { CreateCampaignData } from '@/types';
-import { Camera, DollarSign, CreditCard, FileText } from 'lucide-react';
+import { Camera, DollarSign, CreditCard, FileText, CheckCircle, AlertCircle } from 'lucide-react';
 
 const CreateCampaign = () => {
   const [formData, setFormData] = useState<CreateCampaignData>({
@@ -19,6 +21,9 @@ const CreateCampaign = () => {
   });
   const [imagePreview, setImagePreview] = useState<string>('');
   const [isLoading, setIsLoading] = useState(false);
+  const [pixValidation, setPixValidation] = useState({ isValid: false, type: 'unknown' as const, message: '' });
+  const [titleCount, setTitleCount] = useState(0);
+  const [descCount, setDescCount] = useState(0);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -68,10 +73,7 @@ const CreateCampaign = () => {
       const slug = generateSlug(formData.title);
       console.log('Create campaign:', { ...formData, slug });
       
-      toast({
-        title: "Campanha criada com sucesso!",
-        description: `Sua campanha "${formData.title}" foi criada e já está ativa.`,
-      });
+      showSuccess(`Campanha "${formData.title}" criada com sucesso!`);
       
       // Reset form
       setFormData({
@@ -83,11 +85,7 @@ const CreateCampaign = () => {
       setImagePreview('');
       
     } catch (error) {
-      toast({
-        title: "Erro ao criar campanha",
-        description: "Não foi possível criar sua campanha. Tente novamente.",
-        variant: "destructive",
-      });
+      showError("Não foi possível criar sua campanha. Tente novamente.");
     } finally {
       setIsLoading(false);
     }
@@ -170,7 +168,7 @@ const CreateCampaign = () => {
                   />
                 </div>
 
-                {/* PIX Key */}
+                {/* PIX Key with validation */}
                 <div className="space-y-2">
                   <Label htmlFor="pixKey">
                     <CreditCard className="w-4 h-4 inline mr-2" />
@@ -179,10 +177,22 @@ const CreateCampaign = () => {
                   <Input
                     id="pixKey"
                     value={formData.pixKey}
-                    onChange={(e) => setFormData({ ...formData, pixKey: e.target.value })}
+                    onChange={(e) => {
+                      const newPixKey = e.target.value;
+                      setFormData({ ...formData, pixKey: newPixKey });
+                      const validation = validatePixKey(newPixKey);
+                      setPixValidation(validation);
+                    }}
                     placeholder="CPF, e-mail, telefone ou chave aleatória"
                     required
+                    className={pixValidation.isValid ? 'border-success' : formData.pixKey ? 'border-destructive' : ''}
                   />
+                  {formData.pixKey && (
+                    <div className={`flex items-center gap-2 text-sm ${pixValidation.isValid ? 'text-success' : 'text-destructive'}`}>
+                      {pixValidation.isValid ? <CheckCircle className="w-4 h-4" /> : <AlertCircle className="w-4 h-4" />}
+                      {pixValidation.message}
+                    </div>
+                  )}
                   <p className="text-sm text-muted-foreground">
                     As doações serão feitas diretamente para esta chave PIX
                   </p>
